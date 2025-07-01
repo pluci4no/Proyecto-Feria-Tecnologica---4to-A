@@ -1,12 +1,19 @@
-h1{
+h1 {
     text-align: center;
     margin-right: 20px;
-    text-size-adjust: 30%;
+    color: #4da3ff;
+    font-family: 'Impact', 'Arial Black', cursive, sans-serif;
 }
-body{
-    background-color: rgb(26, 38, 174);
-    
+
+body {
+    background: #0d1a2f;
+    color: #e0e6ed;
+    font-family: Arial, sans-serif;
 }
+
 .carousel-inner img {
-    height: 500px;      
-    object-fit: cover; }
+    height: 500px;
+    object-fit: cover;
+    border: 4px solid #4da3ff;
+    border-radius: 8px;
+}
