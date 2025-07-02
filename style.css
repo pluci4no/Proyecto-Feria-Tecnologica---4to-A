@@ -1,13 +1,12 @@
 h1 {
     text-align: center;
     margin-right: 20px;
-    color: #4da3ff;
+    color: #4da3ff !important;
     font-family: 'Impact', 'Arial Black', cursive, sans-serif;
 }
 
 body {
-    background: #0d1a2f;
-    color: #e0e6ed;
+    color: #0d1a2f;
     font-family: Arial, sans-serif;
 }
 
