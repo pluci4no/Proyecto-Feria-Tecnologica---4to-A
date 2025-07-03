@@ -1,7 +1,7 @@
 h1 {
     text-align: center;
     margin-right: 20px;
-    color: #4da3ff !important;
+    color: #633500ee !important;
     font-family: 'Impact', 'Arial Black', cursive, sans-serif;
 }
 
@@ -13,6 +13,6 @@ body {
 .carousel-inner img {
     height: 500px;
     object-fit: cover;
-    border: 4px solid #4da3ff;
+    border: 4px solid #633500ee;
     border-radius: 8px;
 }
