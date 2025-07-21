@@ -27,7 +27,15 @@ p{
     color: white;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
+.card {
+    background-color: #222831;
+    color: #fdfdfd;
+    border: 2px solid #393e46;
+    border-radius: 10px;
+}
 
-li{
-    color: white;
+.card.sega {
+    background-color: #0f3057;
+    color: #ffcb05;
+    border: 2px solid #00587a;
 }
