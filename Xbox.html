@@ -13,132 +13,7 @@
     </head>
     <body>
 
-        <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Chatbot Xbox</title>
-  <style>
-    body {
-      background-color: #0e0e0e;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      padding: 0;
-      margin: 0;
-    }
-
-    .chat-container {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 300px;
-      background: #1c1c1c;
-      border: 2px solid #00ff00;
-      border-radius: 10px;
-      padding: 10px;
-      box-shadow: 0 0 10px #00ff00;
-    }
-
-    .messages {
-      height: 200px;
-      overflow-y: auto;
-      margin-bottom: 10px;
-    }
-
-    .bot, .user {
-      margin: 5px 0;
-      padding: 8px;
-      border-radius: 8px;
-      max-width: 80%;
-    }
-
-    .bot {
-      background-color: #2a2a2a;
-    }
-
-    .user {
-      background-color: #00ff00;
-      color: #000;
-      text-align: right;
-      margin-left: auto;
-    }
-
-    input[type="text"] {
-      width: 100%;
-      padding: 5px;
-      border-radius: 5px;
-      border: none;
-    }
-  </style>
-</head>
-<body>
-
-<div class="chat-container">
-  <div class="messages" id="chat"></div>
-  <input type="text" id="input" placeholder="Escribe tu respuesta...">
-</div>
-
-<script>
-  const chat = document.getElementById("chat");
-  const input = document.getElementById("input");
-
-  let paso = 0;
-  let preferencias = {};
-
-  const agregarMensaje = (texto, tipo) => {
-    const mensaje = document.createElement("div");
-    mensaje.className = tipo;
-    mensaje.textContent = texto;
-    chat.appendChild(mensaje);
-    chat.scrollTop = chat.scrollHeight;
-  };
-
-  const botPreguntar = () => {
-    if (paso === 0) {
-      agregarMensaje("🎮 ¿Qué género te gusta más? (acción, carreras, deportes)", "bot");
-    } else if (paso === 1) {
-      agregarMensaje("👥 ¿Prefieres multijugador o individual?", "bot");
-    } else if (paso === 2) {
-      agregarMensaje("🎨 ¿Quieres gráficos realistas o estilo animado?", "bot");
-    } else if (paso === 3) {
-      const recomendacion = recomendarJuego(preferencias);
-      agregarMensaje("✅ Te recomiendo: " + recomendacion, "bot");
-    }
-  };
-
-  const recomendarJuego = (prefs) => {
-    if (prefs.genero === "acción" && prefs.tipo === "multijugador") {
-      return "Halo Infinite";
-    } else if (prefs.genero === "carreras") {
-      return "Forza Horizon 5";
-    } else if (prefs.genero === "deportes") {
-      return "FIFA 24 o FC24";
-    } else {
-      return "Sea of Thieves o Grounded";
-    }
-  };
-
-  input.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-      const texto = input.value.trim().toLowerCase();
-      if (texto === "") return;
-      agregarMensaje(texto, "user");
-
-      if (paso === 0) preferencias.genero = texto;
-      else if (paso === 1) preferencias.tipo = texto;
-      else if (paso === 2) preferencias.estilo = texto;
-
-      input.value = "";
-      paso++;
-      setTimeout(botPreguntar, 600);
-    }
-  });
-
-  // Inicia el chatbot
-  botPreguntar();
-</script>
-
-</body>
+        
         <header>
             <h1 style="color: white;">Nintendo - Arcade🎮🕹️</h1>
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -319,4 +194,131 @@
             integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
             crossorigin="anonymous"></script>
     </body>
+
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Chatbot Xbox</title>
+  <style>
+    body {
+      background-color: #0e0e0e;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      padding: 0;
+      margin: 0;
+    }
+
+    .chat-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 300px;
+      background: #1c1c1c;
+      border: 2px solid #00ff00;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 0 10px #00ff00;
+    }
+
+    .messages {
+      height: 200px;
+      overflow-y: auto;
+      margin-bottom: 10px;
+    }
+
+    .bot, .user {
+      margin: 5px 0;
+      padding: 8px;
+      border-radius: 8px;
+      max-width: 80%;
+    }
+
+    .bot {
+      background-color: #2a2a2a;
+    }
+
+    .user {
+      background-color: #00ff00;
+      color: #000;
+      text-align: right;
+      margin-left: auto;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 5px;
+      border-radius: 5px;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="chat-container">
+  <div class="messages" id="chat"></div>
+  <input type="text" id="input" placeholder="Escribe tu respuesta...">
+</div>
+
+<script>
+  const chat = document.getElementById("chat");
+  const input = document.getElementById("input");
+
+  let paso = 0;
+  let preferencias = {};
+
+  const agregarMensaje = (texto, tipo) => {
+    const mensaje = document.createElement("div");
+    mensaje.className = tipo;
+    mensaje.textContent = texto;
+    chat.appendChild(mensaje);
+    chat.scrollTop = chat.scrollHeight;
+  };
+
+  const botPreguntar = () => {
+    if (paso === 0) {
+      agregarMensaje("🎮 ¿Qué género te gusta más? (acción, carreras, deportes)", "bot");
+    } else if (paso === 1) {
+      agregarMensaje("👥 ¿Prefieres multijugador o individual?", "bot");
+    } else if (paso === 2) {
+      agregarMensaje("🎨 ¿Quieres gráficos realistas o estilo animado?", "bot");
+    } else if (paso === 3) {
+      const recomendacion = recomendarJuego(preferencias);
+      agregarMensaje("✅ Te recomiendo: " + recomendacion, "bot");
+    }
+  };
+
+  const recomendarJuego = (prefs) => {
+    if (prefs.genero === "acción" && prefs.tipo === "multijugador") {
+      return "Halo Infinite";
+    } else if (prefs.genero === "carreras") {
+      return "Forza Horizon 5";
+    } else if (prefs.genero === "deportes") {
+      return "FIFA 24 o FC24";
+    } else {
+      return "Sea of Thieves o Grounded";
+    }
+  };
+
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      const texto = input.value.trim().toLowerCase();
+      if (texto === "") return;
+      agregarMensaje(texto, "user");
+
+      if (paso === 0) preferencias.genero = texto;
+      else if (paso === 1) preferencias.tipo = texto;
+      else if (paso === 2) preferencias.estilo = texto;
+
+      input.value = "";
+      paso++;
+      setTimeout(botPreguntar, 600);
+    }
+  });
+
+  // Inicia el chatbot
+  botPreguntar();
+</script>
+
+</body>
 </html>
