@@ -84,8 +84,8 @@ p {
 }
 
 .nav-link:hover, .dropdown-item:hover {
-    color: #fff !important;
-    background: #ffb347 !important;
+    color: #fff ;
+    background: #ffb347 ;
     text-shadow: 1px 1px 2px #8d2323;
 }
 .navbar {
