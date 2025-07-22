@@ -9,25 +9,112 @@
             rel="stylesheet"
             integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
             crossorigin="anonymous"
-        />
+        />    <!--Efecto de agrandar imagen al pasar mouse(Buscado en youtube)-->
         <style>
-        .card a img, .card img {
-            transition: transform 0.3s;
-        }
-        .card a:hover img, .card:hover img {
-            transform: scale(1.08);
-        }
-        .card .card-title,
-        .card .card-text {
-            color: #000 !important;
-        }
-        body{
-            background-image: url(img/sonic-heroes_3840x2160_xtrafondos.com.jpg);
-  background-size: cover; 
-  background-repeat: no-repeat;
-  background-position: center; 
-}
-    </style>
+            .card a img {
+                transition: transform 0.3s;
+            }
+            .card a:hover img {
+                transform: scale(1.08);
+            }
+            .card .card-title,
+            .card .card-text {
+                color: #000 !important;
+            }
+
+        </style>
+        <style>
+    /* Estilo general */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0f0f0f;
+      color: white;
+      
+    }
+
+    /* Pantalla de carga */
+    #loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 9999;
+      animation: fadeOut 1s ease 3s forwards;
+    }
+
+    /* Círculo animado */
+    .circle {
+      border: 6px solid blue;
+      border-top: 6px solid transparent;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+
+    /* Texto "Cargando SEGA..." */
+    .loading-text {
+      font-size: 20px;
+      color: blue;
+      animation: blink 1s infinite;
+    }
+
+    /* Animaciones */
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+    /* Contenido principal (oculto al principio) */
+    #main-content {
+      display: none;
+      padding: 20px;
+    }
+
+    /* Mostrar después de la carga */
+    body.loaded #main-content {
+      display: block;
+      overflow: auto;
+    }
+
+  </style>
+
+  <!-- Pantalla de carga -->
+  <div id="loader">
+    <div class="circle"></div>
+    <div class="loading-text">Cargando SEGA...</div>
+  </div>
+
+
+
+  <script>
+    // Cuando la página esté completamente cargada
+    window.addEventListener("load", function() {
+      // Agrega clase para mostrar contenido
+      document.body.classList.add("loaded");
+    });
+  </script>
+ 
     </head>
     <body>
         <header>
