@@ -1,32 +1,127 @@
 <!doctype html>
 <html lang="es">
-    <head>
-        <title>Nintendo - Arcade🎮🕹️</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-        <link rel="stylesheet" href="style.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-            crossorigin="anonymous"        
-
-        />
+<head>
+    <title>Nintendo - Arcade🎮🕹️</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+        crossorigin="anonymous"
+    />
+    <!-- Google Fonts: Press Start 2P -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        /* Estilo general */
+h1, h4, h5, .navbar-brand, .nav-link, .dropdown-item {
+            font-family: 'Press Start 2P', 'Segoe UI', Arial, sans-serif !important;
+            letter-spacing: 1px;
+        }
+        .navbar {
+            box-shadow: 0 4px 16px 0 #8d2323bb;
+            border-bottom: 3px solid #fff;
+        }
+        .navbar-brand img {
+            margin-left: 10px;
+            height: 40px;
+        }
+        .card {
+            background: linear-gradient(135deg, #222831 60%, #8d2323 100%);
+            color: #fff;
+            border: 2px solid #ffb347;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px 0 #8d2323aa;
+        }
+        .card-title {
+            color: #ffb347 !important;
+            text-shadow: 1px 1px 2px #8d2323;
+        }
+        .card-text {
+            color: #fff !important;
+        }
+        .carousel-inner img {
+            border: 4px solid #ffb347;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px #8d2323cc;
+        }
+        .alert-info {
+            border-radius: 12px;
+            border: 2px solid #ffb347;
+            box-shadow: 0 2px 8px #8d2323aa;
+        }
+        footer {
+            background: #1e1e2f;
+            border-top: 2px solid #ffb347;
+            padding: 12px 0;
+            margin-top: 40px;
+            text-align: center;
+        }
         
-        <!--Efecto de agrandar imagen al pasar mouse(Buscado en youtube)-->
-        <style>
-            .card a img {
-                transition: transform 0.3s;
-            }
-            .card a:hover img {
-                transform: scale(1.08);
-            }
-            .card .card-title,
-            .card .card-text {
-                color: #000 !important;
-            }
 
-        </style>
-        <style>
+        /* Pantalla de carga */
+        #loader {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: black;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          z-index: 9999;
+          animation: fadeOut 1s ease 3s forwards;
+        }
+
+        /* Círculo animado */
+        .circle {
+          border: 6px solid red;
+          border-top: 6px solid transparent;
+          border-radius: 50%;
+          width: 60px;
+          height: 60px;
+          animation: spin 1s linear infinite;
+          margin-bottom: 20px;
+        }
+
+        /* Texto "Cargando nintendo..." */
+        .loading-text {
+          font-size: 20px;
+          color: red;
+          animation: blink 1s infinite;
+        }
+
+        /* Animaciones */
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+
+        @keyframes blink {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.4; }
+        }
+
+        @keyframes fadeOut {
+          to {
+            opacity: 0;
+            visibility: hidden;
+          }
+        }
+
+        /* Contenido principal (oculto al principio) */
+        #main-content {
+          display: none;
+          padding: 20px;
+        }
+
+        /* Mostrar después de la carga */
+        body.loaded #main-content {
+          display: block;
+          overflow: auto;
+        }
     /* Estilo general */
     body {
       margin: 0;
@@ -99,6 +194,18 @@
       display: block;
       overflow: auto;
     }
+              .card a img {
+                transition: transform 0.3s;
+            }
+            .card a:hover img {
+                transform: scale(1.08);
+            }
+            .card .card-title,
+            .card .card-text {
+                color: #ffffff;
+                
+            }
+        
 
   </style>
 
@@ -116,186 +223,189 @@
       document.body.classList.add("loaded");
     });
   </script>
+</head>
+<body>
+    <header>
+        <h1 style="color: #ffb347; text-shadow: 2px 2px 8px #8d2323;">Nintendo - Arcade</h1>
+        <nav class="navbar navbar-expand-lg" style="background-color: #8d2323;">
+            <div class="container-fluid">
+                <a class="navbar-brand d-flex align-items-center" href="index.html" style="color: white;">
+                    Home
+                    <img src="img/mario21.gif" alt="Mario GIF">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="Nintendo.html" style="color: white;">Nintendo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="PlayStation.html" style="color: white;">PlayStation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="SEGA.html" style="color: white;">SEGA</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Xbox.html" style="color: white;">Xbox</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
+                                Consolas Emblematicas
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="Consolas Nintendo/Cnintenndo64.html" style="color: rgb(153, 18, 18);">Nintendo 64</a></li>
+                                <li><a class="dropdown-item" href="Consolas Nintendo/Cwii.html" style="color: rgb(153, 18, 18);">Wii</a></li>
+                                <li><a class="dropdown-item" href="Consolas Nintendo/Cswitch.html" style="color: rgb(153, 18, 18);">Nintendo Switch</a></li>
+                            </ul>
+                        </li>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="alert alert-info" role="alert" style="background-color: #bd6b60;">
+            <p style="color: white;">¡Bienvenidos a nuestra página de Nintendo! Aquí encontrarás las últimas noticias, juegos destacados y mucho más sobre el mundo de Nintendo.<p>
+        </div>
+    </header>
+    <main class="container my-4">
+        <section class="mb-5">
+            <h4 style="color: white;">¡Bienvenidos al mundo de Nintendo!</h4>
+            <p>
+                Nintendo es una de las compañías más icónicas en la historia de los videojuegos. Desde la NES hasta la Nintendo Switch, ha revolucionado la industria con consolas y juegos inolvidables.
+            </p>
+        </section>
 
+        <section class="mb-5">
+            <h4 style="color: white;">Noticias Recientes de Nintendo</h4>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <a href="https://www.nintendo.com/es-mx/gaming-systems/switch/oled-model/" target="_blank">
+                            <img src="img/nintendoswitcholed.jpg" class="card-img-top" alt="Nintendo Switch OLED">
+                        </a>
+                        <div class="card-body">
+                            <h5 class="card-title">¡Nuevo modelo de Nintendo Switch OLED!</h5>
+                            <p class="card-text">Nintendo lanza su nueva consola Switch OLED, con pantalla mejorada y mayor capacidad de almacenamiento.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <a href="https://zelda.nintendo.com/tears-of-the-kingdom/" target="_blank">
+                            <img src="img/zelda.jpg" class="card-img-top" alt="Zelda Tears of the Kingdom">
+                        </a>
+                        <div class="card-body">
+                            <h5 class="card-title">The Legend of Zelda: Tears of the Kingdom arrasa en ventas</h5>
+                            <p class="card-text">La última entrega de Zelda se convierte en uno de los juegos más vendidos de la historia de Nintendo.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <a href="https://www.universalpictures-latam.com/micro/super-mario-bros" target="_blank">
+                        <img src="img/mariobrostvlaint.jpg" class="card-img-top" alt="Super Mario Movie">
+                        </a>
+                        <div class="card-body">
+                            <h5 class="card-title">Super Mario Bros: La película triunfa en cines</h5>
+                            <p class="card-text">La película animada de Mario supera récords de taquilla y encanta a fans de todas las edades.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <h4 style="color: white;">Juegos Destacados de Nintendo</h4>
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100"><a href="https://www.nintendo.com/es-es/Juegos/Juegos-de-Nintendo-Switch/Super-Mario-Odyssey-1173332.html" target="_blank">                        
+                        <img src="img/mariooddi.jpg" class="card-img-top" alt="Super Mario Odyssey"></a>                      
+                        <div class="card-body">
+                            <h5 class="card-title">Super Mario Odyssey</h5>
+                            <p class="card-text">Acompaña a Mario en una aventura 3D por mundos increíbles. Uno de los mejores juegos de la Switch.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100">
+                        <a href="https://www.nintendo.com/es-es/Juegos/Juegos-de-Nintendo-Switch/The-Legend-of-Zelda-Breath-of-the-Wild-1173609.html" target="_blank">
+                        <img src="img/zelda.jpg" class="card-img-top" alt="Zelda Breath of the Wild"></a>
+                         <div class="card-body">
+                            <h5 class="card-title">The Legend of Zelda: Breath of the Wild</h5>
+                            <p class="card-text">Explora Hyrule en un mundo abierto revolucionario. Ganador de múltiples premios a Juego del Año.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100">
+                        <a href="https://www.smashbros.com/es_ES/" target="_blank">
+                        <img src="img/smash.jpeg" class="card-img-top" alt="Super Smash Bros Ultimate"></a>                      
+                        <div class="card-body">
+                            <h5 class="card-title">Super Smash Bros. Ultimate</h5>
+                            <p class="card-text">El crossover definitivo de personajes de Nintendo y otras franquicias. ¡Lucha con tus favoritos!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100">
+                         <a href="https://animalcrossing.nintendo.com/es/" target="_blank">
+                        <img src="img/animal.webp" class="card-img-top" alt="Animal Crossing"></a>                       
+                        <div class="card-body">
+                            <h5 class="card-title">Animal Crossing: New Horizons</h5>
+                            <p class="card-text">Crea tu isla y vive aventuras relajantes con amigos y vecinos adorables.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <h4 style="color: white;">Historia de Nintendo</h4>
+            <p>
+                Fundada en 1889 en Japón, Nintendo comenzó como una empresa de cartas Hanafuda. En los años 80, revolucionó el mundo de los videojuegos con la NES y personajes como Mario, Zelda y Donkey Kong. Hoy, Nintendo sigue innovando con consolas como la Switch y franquicias legendarias.
+            </p>
+        </section>
+
+        <section>
+            <h4 style="color: white;">Galería Nintendo</h4>
+            <div id="carouselNintendo" class="carousel slide mb-4">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselNintendo" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselNintendo" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselNintendo" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="img/nintendo.jpg" class="d-block w-100" alt="Consola Nintendo clásica">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/zeldabotw.jpg" class="d-block w-100" alt="Nintendo Switch">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/wiiconsola.jpg" class="d-block w-100" alt="Mario y Zelda">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselNintendo" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselNintendo" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                </button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p style="font-style: italic; color: gray;">© 2025 Mundo Gamer. Todos los derechos reservados.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
 </body>
-    </head>
-    <body>
-        <header>
-            <h1 style="color: white;">Nintendo - Arcade🎮🕹️</h1>
-            <nav class="navbar navbar-expand-lg" style="background-color: #8d2323;">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="index.html" style="color: white;">Home</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="Nintendo.html" style="color: white;">Nintendo</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="PlayStation.html" style="color: white;">PlayStation</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="SEGA.html" style="color: white;">SEGA</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="Xbox.html" style="color: white;">Xbox</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
-            Consolas Emblematicas
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="Consolas Nintendo/Cnintenndo64.html" style="color: rgb(153, 18, 18);">Nintendo 64</a></li>
-            <li><a class="dropdown-item" href="Consolas Nintendo/Cwii.html" style="color: rgb(153, 18, 18);">Wii</a></li>
-            <li><a class="dropdown-item" href="Consolas Nintendo/Cswitch.html" style="color: rgb(153, 18, 18);;">Nintendo Switch</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-    
-  </div>
-</nav>
-<div class="alert alert-info" role="alert" style="background-color: #bd6b60;">
-    <p style="color: white;">¡Bienvenidos a nuestra página de Nintendo! Aquí encontrarás las últimas noticias, juegos destacados y mucho más sobre el mundo de Nintendo.<p>
-</div>
-        </header>
-        <main class="container my-4">
-            <section class="mb-5">
-                <h2 style="color: white;">¡Bienvenidos al mundo de Nintendo!</h2>
-                <p>
-                    Nintendo es una de las compañías más icónicas en la historia de los videojuegos. Desde la NES hasta la Nintendo Switch, ha revolucionado la industria con consolas y juegos inolvidables.
-                </p>
-            </section>
-
-            <section class="mb-5">
-                <h2 style="color: white;">Noticias Recientes de Nintendo</h2>
-                <div class="row">
-                    <div class="col-md-4 mb-3">
-                        <div class="card h-100">
-                            <a href="https://www.nintendo.com/es-mx/gaming-systems/switch/oled-model/" target="_blank">
-                                <img src="img/nintendoswitcholed.jpg" class="card-img-top" alt="Nintendo Switch OLED">
-                            </a>
-                            <div class="card-body">
-                                <h5 class="card-title">¡Nuevo modelo de Nintendo Switch OLED!</h5>
-                                <p class="card-text">Nintendo lanza su nueva consola Switch OLED, con pantalla mejorada y mayor capacidad de almacenamiento.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <div class="card h-100">
-                            <a href="https://zelda.nintendo.com/tears-of-the-kingdom/" target="_blank">
-                                <img src="img/zelda.jpg" class="card-img-top" alt="Zelda Tears of the Kingdom">
-                            </a>
-                            <div class="card-body">
-                                <h2 class="card-title">The Legend of Zelda: Tears of the Kingdom arrasa en ventas</h2>
-                                <p class="card-text">La última entrega de Zelda se convierte en uno de los juegos más vendidos de la historia de Nintendo.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <div class="card h-100">
-                            <a href="https://www.universalpictures-latam.com/micro/super-mario-bros" target="_blank">
-                            <img src="img/mariobrostvlaint.jpg" class="card-img-top" alt="Super Mario Movie">
-                            </a>
-                            <div class="card-body">
-                                <h2 class="card-title">Super Mario Bros: La película triunfa en cines</h2>
-                                <p class="card-text">La película animada de Mario supera récords de taquilla y encanta a fans de todas las edades.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="mb-5">
-                <h2 style="color: white;">Juegos Destacados de Nintendo</h2>
-                <div class="row">
-                    <div class="col-md-3 mb-3">
-                        <div class="card h-100">
-                            <img src="img/mario-odyssey.jpg" class="card-img-top" alt="Super Mario Odyssey">
-                            <div class="card-body">
-                                <h5 class="card-title">Super Mario Odyssey</h5>
-                                <p class="card-text">Acompaña a Mario en una aventura 3D por mundos increíbles. Uno de los mejores juegos de la Switch.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <div class="card h-100">
-                            <img src="img/zelda-botw.jpg" class="card-img-top" alt="Zelda Breath of the Wild">
-                            <div class="card-body">
-                                <h5 class="card-title">The Legend of Zelda: Breath of the Wild</h5>
-                                <p class="card-text">Explora Hyrule en un mundo abierto revolucionario. Ganador de múltiples premios a Juego del Año.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <div class="card h-100">
-                            <img src="img/smash-bros.jpg" class="card-img-top" alt="Super Smash Bros Ultimate">
-                            <div class="card-body">
-                                <h5 class="card-title">Super Smash Bros. Ultimate</h5>
-                                <p class="card-text">El crossover definitivo de personajes de Nintendo y otras franquicias. ¡Lucha con tus favoritos!</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <div class="card h-100">
-                            <img src="img/animal-crossing.jpg" class="card-img-top" alt="Animal Crossing">
-                            <div class="card-body">
-                                <h5 class="card-title">Animal Crossing: New Horizons</h5>
-                                <p class="card-text">Crea tu isla y vive aventuras relajantes con amigos y vecinos adorables.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="mb-5">
-                <h2 style="color: white;">Historia de Nintendo</h2>
-                <p>
-                    Fundada en 1889 en Japón, Nintendo comenzó como una empresa de cartas Hanafuda. En los años 80, revolucionó el mundo de los videojuegos con la NES y personajes como Mario, Zelda y Donkey Kong. Hoy, Nintendo sigue innovando con consolas como la Switch y franquicias legendarias.
-                </p>
-            </section>
-
-            <section>
-                <h2 style="color: white;">Galería Nintendo</h2>
-                <div id="carouselNintendo" class="carousel slide mb-4">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselNintendo" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselNintendo" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselNintendo" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                    </div>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="img/nintendo.jpg" class="d-block w-100" alt="Consola Nintendo clásica">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="img/nintendo-switch.jpg" class="d-block w-100" alt="Nintendo Switch">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="img/mario-zelda.jpg" class="d-block w-100" alt="Mario y Zelda">
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselNintendo" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Anterior</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselNintendo" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Siguiente</span>
-                    </button>
-                </div>
-            </section>
-        </main>
-        <footer>
-            <p style="font-style: italic; color: gray;">© 2025 Mundo Gamer. Todos los derechos reservados.</p>
-        </footer>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-            crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-            crossorigin="anonymous"></script>
-    </body>
 </html>
