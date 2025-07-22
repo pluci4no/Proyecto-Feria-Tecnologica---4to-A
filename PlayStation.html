@@ -41,7 +41,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: black;
+      background-color: rgb(0, 0, 0);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -52,7 +52,7 @@
 
     /* Círculo animado */
     .circle {
-      border: 6px solid blue;
+      border: 6px solid rgb(0, 47, 255);
       border-top: 6px solid transparent;
       border-radius: 50%;
       width: 60px;
@@ -103,13 +103,7 @@
   <!-- Pantalla de carga -->
   <div id="loader">
     <div class="circle"></div>
-    <div class="loading-text">Cargando PlayStation...</div>
-  </div>
-
-  <!-- Contenido de la página -->
-  <div id="main-content">
-    <h1>¡Bienvenido al mundo de PlayStation!</h1>
-    <p>Explora juegos, noticias y más contenido exclusivo.</p>
+    <div class="loading-text" style="color: rgb(0, 17, 255);">Cargando PlayStation...</div>
   </div>
 
   <script>
@@ -124,10 +118,10 @@
 
     <body>
         <header>
-            <h1 style="color: white;">PlayStation - Arcade🎮🕹️</h1>
-            <nav class="navbar navbar-expand-lg " style="background-color: rgb(107, 117, 136);">
+            <h1 style="color: rgb(107, 117, 136); font-family: 'Arial Black', 'Arial', sans-serif; letter-spacing: 0.1em; text-shadow: 2px 2px 0 #fff, 4px 4px 0 #000; font-weight: bold; text-transform: uppercase;">PlayStation - Arcade🎮🕹️</h1>
+            <nav class="navbar navbar-expand-lg " style="background-color: rgb(59, 64, 73);">
   <div class="container-fluid">
-    <a class="navbar-brand" href="index.html" style="color: white;">Home</a>
+    <a class="navbar-brand" href="index.html" style="color: #fff;">Home</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -135,31 +129,34 @@
       <ul class="navbar-nav">
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="Nintendo.html" style="color: white;">Nintendo</a>
+          <a class="nav-link" href="Nintendo.html" style="color: #fff;">Nintendo</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="PlayStation.html" style="color: white;">PlayStation</a>
+          <a class="nav-link" href="PlayStation.html" style="color: #fff;">PlayStation</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="SEGA.html" style="color: white;">SEGA</a>
+          <a class="nav-link" href="SEGA.html" style="color: #fff;">SEGA</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="Xbox.html" style="color: white;">Xbox</a>
+          <a class="nav-link" href="Xbox.html" style="color: #fff;">Xbox</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #fff;">
             Consolas Emblematicas
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="Consolas Playstation/Cplaystation1.html">PlayStation 1</a></li>
-            <li><a class="dropdown-item" href="Consolas Playstation/Cplaystation3.html">PlayStation 3</a></li>
-            <li><a class="dropdown-item" href="Consolas Playstation/Cplaystation5.html">PlayStation 5</a></li>
+            <li><a class="dropdown-item" href="Consolas Playstation/Cplaystation1.html" style="font-family: 'Arial Black', sans-serif; letter-spacing: normal;">PlayStation 1</a></li>
+            <li><a class="dropdown-item" href="Consolas Playstation/Cplaystation3.html" style="font-family: 'Arial Black', sans-serif; letter-spacing: normal;">PlayStation 3</a></li>
+            <li><a class="dropdown-item" href="Consolas Playstation/Cplaystation5.html" style="font-family: 'Arial Black', sans-serif; letter-spacing: normal;">PlayStation 5</a></li>
           </ul>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+<div class="alert alert-info" role="alert" style="background-color: rgb(133, 149, 179);">
+    <p style="color: white;">¡Bienvenidos a nuestra página de PlayStation! Aquí encontrarás las últimas noticias, juegos destacados y mucho más sobre las cosas de PlayStation.<p>
+</div>
         </header>
         <main class="container my-4">
             <section class="mb-5">
