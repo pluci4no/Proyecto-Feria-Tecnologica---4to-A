@@ -11,6 +11,220 @@
   <link rel="stylesheet" href="../style.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+
+
+ <!-- Google Fonts: Press Start 2P -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+       <!--Efecto de agrandar imagen al pasar mouse(Buscado en youtube)-->
+       <style>
+      /* Es tilo general */
+h1, h2, h3, h4, h5, p, .navbar-brand, .nav-link, .dropdown-item {
+            font-family: 'Press Start 2P', 'Segoe UI', Arial, sans-serif !important;
+            letter-spacing: 1px;
+        }
+        .navbar {
+            box-shadow: 0 4px 16px 0 #43d3ffbb;
+            border-bottom: 3px solid #fff;
+        }
+        .navbar-brand img {
+            margin-left: 10px;
+            height: 40px;
+        }
+        .card {
+            background: linear-gradient(135deg, #222831 60%, #ffffff 100%);
+            color: #fff;
+            border: 2px solid #47e3ff;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px 0 #413737aa;
+        }
+        .card-title {
+            color: #5d9dfc !important;
+            text-shadow: 1px 1px 2px #ffffff;
+        }
+        .card-text {
+            color: #fff !important;
+        }
+        .carousel-inner img {
+            border: 4px solid #43d3ffbb;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px #43d3ffbb;
+        }
+        .alert-info {
+            border-radius: 12px;
+            border: 2px solid #ffffff;
+            box-shadow: 0 2px 8px #43d3ffbb;
+        }
+        footer {
+            background: #1e1e2f;
+            border-top: 2px solid #ffffff;
+            padding: 12px 0;
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+
+        /* Pantalla de carga */
+        #loader {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: black;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          z-index: 9999;
+          animation: fadeOut 1s ease 3s forwards;
+        }
+
+        /* Círculo animado */
+        .circle {
+          border: 6px solid blue;
+          border-top: 6px solid transparent;
+          border-radius: 50%;
+          width: 60px;
+          height: 60px;
+          animation: spin 1s linear infinite;
+          margin-bottom: 20px;
+        }
+
+        /* Texto "Cargando nintendo..." */
+        .loading-text {
+          font-size: 20px;
+          color: blue;
+          animation: blink 1s infinite;
+        }
+
+        /* Animaciones */
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+
+        @keyframes blink {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.4; }
+        }
+
+        @keyframes fadeOut {
+          to {
+            opacity: 0;
+            visibility: hidden;
+          }
+        }
+
+        /* Contenido principal (oculto al principio) */
+        #main-content {
+          display: none;
+          padding: 20px;
+        }
+
+        /* Mostrar después de la carga */
+        body.loaded #main-content {
+          display: block;
+          overflow: auto;
+        }
+    /* Estilo general */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0f0f0f;
+      color: white;
+      
+    }
+
+    /* Pantalla de carga */
+    #loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 9999;
+      animation: fadeOut 1s ease 3s forwards;
+    }
+
+    /* Círculo animado */
+    .circle {
+      border: 6px solid rgb(0, 38, 255);
+      border-top: 6px solid transparent;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+
+    /* Texto "Cargando nintendo..." */
+    .loading-text {
+      font-size: 20px;
+      color: rgb(0, 4, 255);
+      animation: blink 1s infinite;
+    }
+
+    /* Animaciones */
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+    /* Contenido principal (oculto al principio) */
+    #main-content {
+      display: none;
+      padding: 20px;
+    }
+
+    /* Mostrar después de la carga */
+    body.loaded #main-content {
+      display: block;
+      overflow: auto;
+    }
+              .card a img {
+                transition: transform 0.3s;
+            }
+            .card a:hover img {
+                transform: scale(1.08);
+            }
+            .card .card-title,
+            .card .card-text {
+                color: #ffffff;
+                
+            }
+  </style>
+
+<!-- Pantalla de carga -->
+  <div id="loader">
+    <div class="circle"></div>
+    <div class="loading-text" style="color: rgb(0, 4, 214);">Cargando PlayStation...</div>
+  </div>
+
+  <script>
+    // Cuando la página esté completamente cargada
+    window.addEventListener("load", function() {
+      // Agrega clase para mostrar contenido
+      document.body.classList.add("loaded");
+    });
+  </script>
+
 </head>
 
 <body style="background-image: url(https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2019/12/playstation_0.jpg?tf=3840x);
@@ -20,7 +234,7 @@ background-size: cover;
   background-attachment: fixed;"
 >
   <header>
-    <h1 style="color: rgb(107, 117, 136); font-family: 'Arial Black', 'Arial', sans-serif; letter-spacing: 0.1em; text-shadow: 2px 2px 0 #fff, 4px 4px 0 #000; font-weight: bold; text-transform: uppercase;">🎮PlayStation - PlayStation 1🕹️</h1>
+    <h1 style="color: #ffffff; text-shadow: 2px 2px 8px #5d9dfc;">🎮PlayStation - PlayStation 1🕹️</h1>
     <nav class="navbar navbar-expand-lg" style="background-color: #343a40;">
       <div class="container-fluid">
         <a class="navbar-brand" href="../index.html" style="color: #fff;">Home</a>
@@ -52,42 +266,42 @@ background-size: cover;
         </header>
         <main class="container my-4">
             <section class="mb-5">
-                <h2 style="color: white; text-align: center;">¿Que es la PlayStation 1?</h2>
+                <h2 style="color: #ffffff; text-shadow: 2px 2px 8px #5d9dfc; text-align: center; text-align: center;">¿Que es la PlayStation 1?</h2>
                 <p style="text-align: center;">
                     La PlayStation 1 (PS1), a menudo conocida simplemente como PlayStation, fue la primera consola de videojuegos lanzada por Sony Computer Entertainment. Marcó un hito en la industria del videojuego y fue una consola de quinta generación. En el año 2000, Sony lanzó una versión rediseñada y más compacta de la PlayStation original, llamada PS one.
                 </p>
             </section>
 
             <section class="mb-2">
-                <h3 style="color: white; text-align: center;">PlayStaion 1 - PS One</h3>
+                <h3 style="color: #ffffff; text-shadow: 2px 2px 8px #5d9dfc; text-align: center; text-align: center;">PlayStaion 1 - PS One</h3>
                 <div class="row justify-content-center">
-                    <div class="col-md-4 mb-2">
+                    <div class="col-md-5 mb-2">
                         <div class="card h-100">
                             <a href="https://www.nintendo.com/es-mx/gaming-systems/switch/oled-model/" target="_blank">
                                 <img src="../img/cplaystation 1.webp" class="card-img-top" alt="PlayNoticias">
                             </a>
                             <div class="card-body">
-                                <h5 class="card-title">¡Las nuevas consolas de PS5 por el 30ᵗʰ Aniversario!</h5>
-                                <p class="card-text" style="color: black;">El motivo principal es conmemorar el 30º aniversario del lanzamiento de la PlayStation original, que salió en Japón el 3 de diciembre de 1994. Treinta años es un hito significativo en cualquier industria, y en el mundo de los videojuegos, donde las tendencias cambian rápidamente, es una prueba de la durabilidad e impacto de la marca PlayStation.</p>
+                                <h5 class="card-title">La PlayStation 1</h5>
+                                <p class="card-text" style="color: black;">La PlayStation 1 (PS1), lanzada por Sony en Japón en 1994 y globalmente en 1995, fue una consola de quinta generación que revolucionó la industria del videojuego al adoptar el CD-ROM como formato principal. Este cambio permitió gráficos 3D poligonales más complejos, audio de mayor calidad y videos, elementos que la distinguieron de sus competidores basados en cartuchos. </p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 mb-2">
+                    <div class="col-md-6 mb-2">
                         <div class="card h-100">
                             <a href="https://zelda.nintendo.com/tears-of-the-kingdom/" target="_blank">
                                 <img src="../img/psone.webp" class="card-img-top" alt="PlayNoticias">
                             </a>
                             <div class="card-body">
-                                <h5 class="card-title">GTA VI si estara para PS5</h5>
-                                <p class="card-text" style="color: black;">Rockstar Games ha confirmado que el segundo tráiler de GTA VI fue capturado directamente en una PS5 estándar, lo que da una idea de los gráficos y el rendimiento que se puede esperar en la consola.</p>
+                                <h5 class="card-title">La PS one</h5>
+                                <p class="card-text" style="color: black;">La PS one, lanzada por Sony en el año 2000, fue una versión rediseñada y más compacta de la PlayStation original. A pesar de que la PlayStation 2 ya había salido al mercado, la PS one se posicionó como una alternativa más asequible y portátil, manteniendo total compatibilidad con el extenso catálogo de juegos de la PS1.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section class="mb-5">
-                <h3 style="color: white; text-align: center;">Informacion de la PlayStation 1 - PS one</h3>
+            <section class="mb-4">
+                <h3 style="color: #ffffff; text-shadow: 2px 2px 8px #5d9dfc; text-align: center; text-align: center;">Informacion de la PlayStation 1 - PS one</h3>
                 <div class="row justify-content-center">
                     <div class="col-md-4 mb-3">
                         <div class="card h-100">
@@ -155,15 +369,6 @@ background-size: cover;
                 </div>
             </section>
 
-            <section class="mb-5">
-                <h3 style="color: white;">Historia de Playstation</h3>
-                <p>
-                    PlayStation se lanzó en 1994 por Sony, revolucionando la industria con sus gráficos 3D y el uso de CD-ROM. 
-                    Su éxito masivo sentó las bases para el dominio de Sony en el sector de los videojuegos. 
-                    Le siguieron la innovadora PlayStation 2 (2000), la conectada PlayStation 3 (2006) y la popular PlayStation 4 (2013).
-                     Actualmente, la PlayStation 5 (2020) continúa la tradición de potentes gráficos y experiencias inmersivas.
-                </p>
-            </section>
 
             <section>
                 <h3 style="color: white;">Galería PlayStation</h3>
@@ -175,13 +380,13 @@ background-size: cover;
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="img/playstationcarruselps.jpg" class="d-block w-100" alt="Imagen PlayStation">
+                            <img src="../img/carrusel play1.webp" class="d-block w-100" alt="Imagen PlayStation">
                         </div>
                         <div class="carousel-item">
-                            <img src="img/playstationcarrusel22.webp" class="d-block w-100" alt="Imagen PlayStation Store">
+                            <img src="../img/carrusel 2 play1.webp" class="d-block w-100" alt="Imagen PlayStation Store">
                         </div>
                         <div class="carousel-item">
-                            <img src="img/playstation carrusel33.webp" class="d-block w-100" alt="Imagen PlayStation Plus">
+                            <img src="../img/carrusel 3 play 1.jpeg" class="d-block w-100" alt="Imagen PlayStation Plus">
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselPlayStation" data-bs-slide="prev">
