@@ -14,15 +14,121 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="icon" href="img/favicon.ico"image/x-icon">
 
-    
+    <!-- Google Fonts: Press Start 2P -->
+           <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     
         <style>
-  h1, h2, h3, h5, li, .navbar-brand  {
-            font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif !important;
+  h1, h2, h3, h4, h5, p, .navbar-brand, .nav-link, .dropdown-item {
+            font-family: 'Press Start 2P', 'Segoe UI', Arial, sans-serif !important;
             letter-spacing: 1px;
+        }
+        .navbar {
+            box-shadow: 0 4px 16px 0 #f4a4f7bb;
+            border-bottom: 3px solid #ffffff;
+        }
+        .navbar-brand img {
+            margin-left: 10px;
+            height: 40px;
+        }
+        .card {
+            background: linear-gradient(135deg, #222831 60%, #f4a4f7bb 100%);
             color: #fff;
-          }
+            border: 2px solid #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px 0 #413737aa;
+        }
+        .card-title {
+            color: #ab19ff !important;
+            text-shadow: 1px 1px 2px #ffffff;
+        }
+        .card-text {
+            color: #fff !important;
+        }
+        .carousel-inner img {
+            border: 4px solid #f4a4f7bb;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px #f4a4f7bb;
+        }
+        .alert-info {
+            border-radius: 12px;
+            border: 2px solid #ffffff;
+            box-shadow: 0 2px 8px #f4a4f7bb;
+        }
+        footer {
+            background: #1e1e2f;
+            border-top: 2px solid #ffffff;
+            padding: 12px 0;
+            margin-top: 40px;
+            text-align: center;
+        }
+        
 
+        /* Pantalla de carga */
+        #loader {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: black;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          z-index: 9999;
+          animation: fadeOut 1s ease 3s forwards;
+        }
+        
+
+        /* Círculo animado */
+        .circle {
+          border: 6px solid rgb(255, 255, 255);
+          border-top: 6px solid transparent;
+          border-radius: 50%;
+          width: 60px;
+          height: 60px;
+          animation: spin 1s linear infinite;
+          margin-bottom: 20px;
+        }
+
+        /* Texto "Cargando nintendo..." */
+        .loading-text {
+          font-size: 20px;
+          color: rgb(255, 255, 255);
+          animation: blink 1s infinite;
+        }
+
+        /* Animaciones */
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+
+        @keyframes blink {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.4; }
+        }
+
+        @keyframes fadeOut {
+          to {
+            opacity: 0;
+            visibility: hidden;
+          }
+        }
+
+        /* Contenido principal (oculto al principio) */
+        #main-content {
+          display: none;
+          padding: 20px;
+        }
+
+        /* Mostrar después de la carga */
+        body.loaded #main-content {
+          display: block;
+          overflow: auto;
+        }
     /* Estilo general */
     body {
       margin: 0;
@@ -34,7 +140,6 @@
 
     /* Pantalla de carga */
     #loader {
-      font-family: 'Press Start 2P', Georgia, 'Times New Roman', Times, serif !important;
       position: fixed;
       top: 0;
       left: 0;
@@ -51,7 +156,7 @@
 
     /* Círculo animado */
     .circle {
-      border: 6px solid white;
+      border: 6px solid rgb(255, 255, 255);
       border-top: 6px solid transparent;
       border-radius: 50%;
       width: 60px;
@@ -60,10 +165,10 @@
       margin-bottom: 20px;
     }
 
-    /* Texto "Cargando pagina principal ..." */
+    /* Texto "Cargando nintendo..." */
     .loading-text {
       font-size: 20px;
-      color: white;
+      color: rgb(255, 255, 255);
       animation: blink 1s infinite;
     }
 
@@ -96,9 +201,17 @@
       display: block;
       overflow: auto;
     }
-    
-
-
+              .card a img {
+                transition: transform 0.3s;
+            }
+            .card a:hover img {
+                transform: scale(1.08);
+            }
+            .card .card-title,
+            .card .card-text {
+                color: #ffffff;
+                
+            }
   </style>
 
   <!-- Pantalla de carga -->
@@ -118,7 +231,7 @@
 
 <body style="background-color: rgb(255, 255, 255);">
   <header>
-    <h1 style="color: white; align-items: center;">
+    <h1 style="color: #ffffff; text-shadow: 2px 2px 8px #5714f5; text-align: center;">
       🎮Arcade🕹️
     </h1>
     <nav class="navbar navbar-expand-lg" style="background-color: #343a40;">
@@ -158,46 +271,76 @@
     <div style="display: flex; align-items: center; justify-content: space-between; margin: 20px 0;">
       <div style="flex: 1;">
         <!-- Información a la izquierda -->
-        <h2 >
-          ¡Bienvenidos a nuestra página de videojuegos retro!
+        <h2 style="color: #ffffff; text-shadow: 2px 2px 8px #5714f5; text-align: center;">
+          ¡Bienvenidos a nuestra página de videojuegos retro de las compañias más conocidas!
         </h2>
-        <h2 style="color: rgb(217, 133, 250);">Hola!! Nos presentamos somos:</h2>
-        <p style="color: white;">
-          Un equipo conformado por: Julio, Adrian, Luciano, Tomás y Pablo. 
+        <section class="mb-2">
+                <div class="row justify-content-center">
+                    <div class="col-md-9 mb-2">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Hola!! Nos presentamos somos:</h5>
+                                <p class="card-text" style="color: black;">Un equipo conformado por: Julio, Adrian, Luciano, Tomás y Pablo. 
           Somos un pequeño grupo apasionados de los videojuegos retro que han decidido crear este sitio para compartir su amor por las consolas y juegos clásicos. 
-          Desde pequeños, hemos disfrutado de la magia de los videojuegos y queremos transmitir esa pasión a todos ustedes.
-        </p>
+          Desde pequeños, hemos disfrutado de la magia de los videojuegos y queremos transmitir esa pasión a todos ustedes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         <br>
-        <p style="color: white;">Queremos conservar gran parte de nuestra cultura como lo viene siendo las consolas y videojuegos
+        <section class="mb-2">
+                <div class="row justify-content-center">
+                    <div class="col-md-9 mb-2">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <p class="card-text" style="color: black;">Queremos conservar gran parte de nuestra cultura como lo viene siendo las consolas y videojuegos
           para que futuras generaciones puedan disfrutar de los videojuegos que marcaron una época.
           Nuestra misión es preservar la historia de los videojuegos y compartirla con todos los amantes de esta forma de
           entretenimiento.
           Nuestra visión es ser un referente en la comunidad de videojuegos retro, ofreciendo información valiosa y recursos
-          para aquellos que buscan revivir la magia de los juegos clásicos.</p>
+          para aquellos que buscan revivir la magia de los juegos clásicos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
       </div>
       <div style="flex-shrink: 0; margin-left: 30px;">
         <!-- GIF alineado a la derecha -->
-        <img src="img/mario gif.gif" alt="Retro Arcade GIF" style="max-width: 300px; width: 100%;">
+        <img src="img/mario gif.gif" alt="Retro Arcade GIF" style="max-width: 300px; width: 100%; text-align: left;">
       </div>
     </div>
     <br>
     <br>
-    <div style="display: flex; justify-content: center; margin-bottom: 30px;">
-      <video controls style="max-width: 1280x; width: 720px; border-radius: 12px;">
+    <div style="display: flex; justify-content: center; margin-bottom: 100px;">
+      <video controls style="max-width: 2480x; width: 1520px; border-radius: 22px;">
         <source src="img/video.mp4" type="video/mp4">
         Tu navegador no soporta la reproducción de video o el archivo no se encuentra.
       </video>
     </div>
  
 
-    <h2 style="color: rgb(255, 93, 93); text-align: left;" >En nuestra página encontraras...</h2>
     <ul class="list-unstyled" style="color: white; text-align: left;">
-      <li>Acerca de Nintendo</li>
+      <section class="mb-2">
+                <div class="row justify-content-center">
+                    <div class="col-md-9 mb-2">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">En nuestra página encontraras...</h5>
+                                <p class="card-text" style="color: black;">
+                                  <li>Acerca de Nintendo</li>
       <li>Acerca de Xbox</li>
       <li>Acerca de PlayStation</li>
       <li>Acerca de Sega</li>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
       <br>
-      <h2 style="color: rgb(117, 245, 100); text-align: left;">¿De que me sirve esto?</h2>
+      <h2 style="color: #ffffff; text-shadow: 2px 2px 8px #5714f5; text-align: center;">¿De que me sirve esto?</h2>
       <p id="resumen">Esta página es un recurso valioso para todos los amantes de los videojuegos retro.</p>
       <button class="btn btn-primary btn-sm" id="leerMasBtn" onclick="document.getElementById('detalle').style.display='block'; this.style.display='none'; document.getElementById('verMenosBtn').style.display='inline-block';">Leer más</button>
       <button class="btn btn-secondary btn-sm" id="verMenosBtn" style="display:none;" onclick="document.getElementById('detalle').style.display='none'; this.style.display='none'; document.getElementById('leerMasBtn').style.display='inline-block';">Ver menos</button>
@@ -215,7 +358,7 @@
     <br>
     <!--Carrusel de Imágenes-->
     <div class="d-flex justify-content-center">
-      <div id="carouselExampleIndicators" class="carousel slide" style="max-width: 1000px; width: 150%;">
+      <div id="carouselExampleIndicators" class="carousel slide" style="max-width: 2000px; width: 650%;">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
             aria-current="true" aria-label="Slide 1"></button>
