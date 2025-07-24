@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>SEGA Genesis - Poder de 16 bits</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="icon" href="../img/favicon.ico" type="image/png">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1e1e1e, #3a0ca3);
+            color: #f0f0f0;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 12px;
+        }
+        h1, h2, h3, h5 {
+            color: #ffbe0b;
+            text-shadow: 1px 1px #000;
+        }
+        .navbar {
+            background-color: #000;
+            border-bottom: 2px solid #ff006e;
+        }
+        .nav-link, .navbar-brand {
+            color: #ffbe0b !important;
+        }
+        .nav-link:hover {
+            color: #ff006e !important;
+        }
+        .card {
+            background-color: #212529;
+            border: 3px dashed #ff006e;
+            border-radius: 0;
+            box-shadow: 0 0 12px #ff006e88;
+        }
+        .card-title {
+            color: #fb5607;
+        }
+        .carousel-inner img {
+            border: 4px solid #ffbe0b;
+            border-radius: 0;
+        }
+        footer {
+            background-color: #111;
+            color: #aaa;
+            text-align: center;
+            padding: 20px;
+            border-top: 2px solid #ffbe0b;
+            margin-top: 40px;
+        }
+                .card-text {
+            color: #009cd5 !important;
+        }
+                      .card a img {
+                transition: transform 0.3s;
+            }
+            .card a:hover img {
+                transform: scale(1.08);
+            }
+            .card .card-title,
+            .card .card-text {
+                color: #ffffff;}
+                 body{
+                font-family: 'Press Start 2P', 'Segoe UI', Arial, sans-serif;
+    background-image: url(../img/fondo\ genesis.jpg);
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center; 
+    background-attachment: fixed;
+    position: relative;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="cDrive (SEGA Genesis).html">GENESIS</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navGenesis">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navGenesis">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="../SEGA.html">SEGA</a></li>
+                <li class="nav-item"><a class="nav-link" href="Dreamcast.html">Dreamcast</a></li>
+                <li class="nav-item"><a class="nav-link" href="Saturn.html">Saturn</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main class="container py-5">
+    <header class="text-center mb-4">
+        <h1>SEGA Genesis: Poder Retro</h1>
+        <p class="lead">¡Bienvenido a la era dorada de los 16 bits! Acción, velocidad y actitud.</p>
+    </header>
+
+    <section class="mb-5">
+        <h2>La revolución de los 90</h2>
+        <p>
+            SEGA Genesis fue una consola de 16 bits lanzada en 1988 (Japón) y 1989 (América), que desafió a Nintendo con juegos más rápidos, música más potente y un estilo rebelde. 
+            Clásicos como <strong>Sonic</strong>, <strong>Streets of Rage</strong> y <strong>Golden Axe</strong> definieron una generación.
+        </p>
+    </section>
+
+    <section class="mb-5">
+        <h3>Juegos clásicos</h3>
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <div class="card h-100">
+                    <a href="https://vandal.elespanol.com/juegos/gba/sonic-the-hedgehog-genesis/5930#p-11"><img src="../img/SonicGenesis.webp" class="card-img-top" alt="Sonic 2"></a>
+                    <div class="card-body">
+                        <h5 class="card-title">Sonic the Hedgehog 2</h5>
+                        <p class="card-text">Velocidad extrema, bucles imposibles y el debut de Tails. ¡Sonic en su mejor momento!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card h-100">
+                    <a href="https://retrovideojuegos.com/streets-of-rage-sega-genesis/"><img src="../img/streetsofrage.jpeg" class="card-img-top" alt="Streets of Rage"></a>
+                    <div class="card-body">
+                        <h5 class="card-title">Streets of Rage</h5>
+                        <p class="card-text">Peleas callejeras con música electrónica inolvidable. Perfecto para 2 jugadores.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card h-100">
+                     <a href="https://classicgamezone.com/es/games/golden-axe"><img src="../img/golden axegenesis.webp" class="card-img-top" alt="Golden Axe"></a>
+                    <div class="card-body">
+                        <h5 class="card-title">Golden Axe</h5>
+                        <p class="card-text">Fantasía medieval, dragones, magia... y muchas hachas. Un clásico instantáneo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-5">
+        <h3>Galería Genesis</h3>
+        <div id="carouselGenesis" class="carousel slide">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="../img/carruselGenesis.jpg" class="d-block w-100" alt="Consola Genesis">
+                </div>
+                <div class="carousel-item">
+                    <img src="../img/carruselGenesis2.jpg" class="d-block w-100" alt="Control Genesis">
+                </div>
+                <div class="carousel-item">
+                    <img src="../img/carruselGenesis3.jpg" class="d-block w-100" alt="Juegos Genesis">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselGenesis" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselGenesis" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+            </button>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>© 2025 SEGA Genesis - El legado continúa 🕹️</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
